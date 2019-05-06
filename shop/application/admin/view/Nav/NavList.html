@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <title>网上商城</title>
+
+    <meta name="description" content="Dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Basic Styles-->
+    <link href="__ADMIN__/style/bootstrap.css" rel="stylesheet">
+    <link href="__ADMIN__/style/font-awesome.css" rel="stylesheet">
+    <link href="__ADMIN__/style/weather-icons.css" rel="stylesheet">
+    <link rel="icon" href="__FAICON__/favicon.ico" type="image/x-icon" />
+
+    <!--Beyond styles-->
+    <link id="beyond-link" href="__ADMIN__/style/beyond.css" rel="stylesheet" type="text/css">
+    <link href="__ADMIN__/style/demo.css" rel="stylesheet">
+    <link href="__ADMIN__/style/typicons.css" rel="stylesheet">
+    <link href="__ADMIN__/style/animate.css" rel="stylesheet">
+    <script src="__ADMIN__/style/jquery-1.9.0.min.js"></script>
+
+    <script  type="text/javascript">
+        //上移
+        function upsort(){
+            document.action.action="{:url('Nav/upsort')}";
+            document.action.submit();
+        }
+        //下移
+        function dmsort(){
+            document.action.action="{:url('Nav/dmsort')}";
+            document.action.submit();
+        }
+        //置顶
+        function uploadsort(){
+            document.action.action="{:url('Nav/uploadsort')}";
+            document.action.submit();
+        }
+        //置尾
+        function domnupsort(){
+            document.action.action="{:url('Nav/domnupsort')}";
+            document.action.submit();
+        }
+    </script>
+    
+</head>
+<body>
+<!-- 头部 -->
+{include file='public/top'/}
+
+<!-- /头部 -->
+
+<div class="main-container container-fluid">
+    <div class="page-container">
+        <!-- Page Sidebar -->
+        {include file='public/left'/}
+        <!-- /Page Sidebar -->
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">系统</a>
+                    </li>
+                    <li class="active">导航管理</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+             <form  name="action" class="form-horizontal" role="form"  method="post" enctype="multipart/form-data" action="">
+                 <div class="page-body">
+                <button type="button" tooltip="添加导航" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = 'NavAdd'"> <i class="fa fa-plus"></i> Add
+                </button>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-body">
+                                <div class="flip-scroll">
+                                    <table class="table table-bordered table-hover">
+                                        <thead class="">
+                                        <tr>
+                                             <th class="text-center">序号</th>
+                                            <th class="text-center">导航名称</th>
+                                            <th class="text-center">导航地址</th>
+                                            <th class="text-center">显示位置</th>
+                                             <th class="text-center">上下移动</th>
+                                            <th class="text-center" width="15%">操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                       {volist name="Nav" id="NavRes"}
+                                        <tr>
+                                            <td align="center">{$NavRes.nav_scort}</td>
+                                            <td align="center">{$NavRes.nav_name}</td>
+                                            <td align="center">{$NavRes.nav_url}</td>
+                                            <td align="center">
+                                                <?php if($NavRes['nav_open']==1){echo "顶部";}elseif($NavRes['nav_open']==2){echo "中部";}else{echo "底部";}?>
+                                            </td>
+                                             <td style="text-align: center" width="15%">
+                                                <input type="hidden" name="id" value="{$NavRes.id}">
+                                                <button  class="btn" type="submit" value="{$NavRes.nav_scort}" name="pai" onclick="dmsort()">下移</span></button>
+                                                <button class="btn" type="submit"  value="{$NavRes.nav_scort}" name="pai" onclick="upsort()">上移</button>
+                                                <button class="btn" type="submit"  value="{$NavRes.nav_scort}" name="pai" onclick="uploadsort()">置顶</button>
+                                                <button class="btn" type="submit"  value="{$NavRes.nav_scort}" name="pai" onclick="domnupsort()">置尾</i></button>
+                                            </td>
+                                            <td align="center">
+                                                <a href="{:url('NavEdit',array('id'=>$NavRes['id']))}" class="btn btn-primary btn-sm shiny">
+                                                    <i class="fa fa-edit"></i> 编辑
+                                                </a>
+                                                <a href="#" onClick="warning('确实要删除吗', '{:url('NavDel',array('id'=>$NavRes['id']))}')" class="btn btn-danger btn-sm shiny">
+                                                    <i class="fa fa-trash-o"></i> 删除
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {/volist}
+                                        </tbody>
+                                    </table>
+                                    <div style="margin-top: 10px;float: right">
+                                    
+                                    </div>
+                                </div>
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+</div>
+
+<!--Basic Scripts-->
+<script src="__ADMIN__/style/jquery_002.js"></script>
+<script src="__ADMIN__/style/bootstrap.js"></script>
+<script src="__ADMIN__/style/jquery.js"></script>
+<!--Beyond Scripts-->
+<script src="__ADMIN__/style/beyond.js"></script>
+<!-- 排序js -->
+<!-- <script src="__ADMIN__/style/scort.js"></script> -->
+
+</body>
+</html>

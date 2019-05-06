@@ -1,0 +1,24 @@
+<div class="footer user-footer">
+	<div class="dsc-copyright">
+		<div class="w w1200">
+			 
+			<p class="footer-ecscinfo pb10">
+				 
+				<a href="index.php" >首页</a>  
+				| 
+				{volist name="CateRes" id="Cates"}
+				<a href="{:url('index/Cate/index',array('id'=>$Cates.id))}" >{$Cates.cate_name}</a> | 
+				{/volist}
+			</p>
+			<p class="copyright_info">ICP备案证书号:<a href="http://www.miibeian.gov.cn/" target="_blank">DSC00000123</a> POWERED BY<a href="http://www.dscmall.cn/" target="_blank">大商创</a>2.0</p>
+					</div>
+	</div>
+    
+    
+    <div class="hidden">
+        <input type="hidden" name="seller_kf_IM" value="" rev="" ru_id="" />
+        <input type="hidden" name="seller_kf_qq" value="349488953" />
+        <input type="hidden" name="seller_kf_tel" value="4000-000-000" />
+        <input type="hidden" name="user_id" value="0" />
+    </div>
+</div>

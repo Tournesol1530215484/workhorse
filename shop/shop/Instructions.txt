@@ -1,0 +1,12 @@
+ <div style="margin-top: 10px;float: right">
+    {$Type->render()}
+ </div>
+商品分类表：sh_category
+    id cate_name cate_img sort pid keywords show_nav ;
+
+商品类型表：
+    商品类型：sh_goodstype
+                id type_name isavailable entity
+    商品属性：sh_goodsattr
+                id attr_name attr_type attr_values type_id
+

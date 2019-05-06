@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html><head>
+        <meta charset="utf-8">
+  <title>{$AllConf.sitename}</title>
+    <meta name="description" content="Dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Basic Styles-->
+    <link href="__ADMIN__/style/bootstrap.css" rel="stylesheet">
+    <link href="__ADMIN__/style/font-awesome.css" rel="stylesheet">
+    <link href="__ADMIN__/style/weather-icons.css" rel="stylesheet">
+    <link rel="icon" href="__FAICON__/favicon.ico" type="image/x-icon" />
+
+    <!--Beyond styles-->
+    <link id="beyond-link" href="__ADMIN__/style/beyond.css" rel="stylesheet" type="text/css">
+    <link href="__ADMIN__/style/demo.css" rel="stylesheet">
+    <link href="__ADMIN__/style/typicons.css" rel="stylesheet">
+    <link href="__ADMIN__/style/animate.css" rel="stylesheet">
+    
+</head>
+<body>
+    <!-- 头部 -->
+    {include file='public/top'/}
+    <!-- /头部 -->
+    
+    <div class="main-container container-fluid">
+        <div class="page-container">
+            <!-- Page Sidebar -->
+            {include file='public/left'/}
+            <!-- /Page Sidebar -->
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">系统</a>
+                        </li>
+                        <li>
+                            <a href="{:url('CategoryWord/CateWordList')}">商品类型品牌管理</a>
+                        </li>
+                        <li class="active">修改类型品牌</li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+
+                <!-- Page Body -->
+                <div class="page-body">
+                    
+<div class="row">
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+        <div class="widget">
+            <div class="widget-header bordered-bottom bordered-blue">
+                <span class="widget-caption">修改类型品牌</span>
+            </div>
+            <div class="widget-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" action="CateBrandBEdit" method="post" enctype="multipart/form-data" >
+                        <input type="hidden" name="id" value="{$Catecontent.id}">
+                        <div class="form-group">
+                            <label for="pid" class="col-sm-2 control-label no-padding-right">关联栏目</label>
+                            <select name="category_id" style="margin-left: 15px">
+                                <option value="0">请选择</option>
+                                {volist name="Category" id="CateRes"}
+                                <option value="{$CateRes.id}" {if condition="$CateRes.id eq $Catecontent.category_id"}selected="selected"{/if}>  
+                                    {$CateRes.cate_name}
+                                </option>
+                                {/volist}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">关联品牌</label>
+                            <div class="col-sm-6">
+                                <div class="checkbox">
+                                      <?php
+                                    $arr=explode(',', $Catecontent['brands_id']);
+                                ?>
+                                {volist name="Brandgory" id="brand"}
+                                    <?php
+                                        if(in_array($brand['id'], $arr)){
+                                            $checked='checked="checked"';
+                                        }else{
+                                            $checked='';
+                                        }
+                                    ?>
+                               
+                                    <label style="margin-right:15px;">
+                                        <input {$checked} name="brands_id[]" value="{$brand.id}" type="checkbox" class="colored-blue">
+                                        <span class="text">{$brand.brand_name}</span>
+                                    </label>
+                                {/volist}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">关联地址</label>
+                            <div class="col-sm-6">
+                                <input class="form-control"   placeholder="" name="pro_url" value="{$Catecontent.pro_url}" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">关联图标</label>
+                            <div class="col-sm-2">
+                                <input type="file" name="pro_img">
+                            </div>
+                             <div class="col-sm-4">
+                                {if condition="$Catecontent.pro_img eq ''"}
+                                暂无缩略图
+                                {else\}
+                               <img src="UPLOADS/{$Catecontent.pro_img}" width="120" height="30">
+                                {/if}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-default">保存信息</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+        </div>  
+    </div>
+
+        <!--Basic Scripts-->
+    <script src="__ADMIN__/style/jquery_002.js"></script>
+    <script src="__ADMIN__/style/bootstrap.js"></script>
+    <script src="__ADMIN__/style/jquery.js"></script>
+    <!--Beyond Scripts-->
+    <script src="__ADMIN__/style/beyond.js"></script>
+    
+
+
+</body></html>

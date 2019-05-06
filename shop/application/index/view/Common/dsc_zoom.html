@@ -1,0 +1,50 @@
+<div class="nav dsc-zoom">
+    <div class="w w1200">
+        <div class="categorys">
+            <div class="categorys-type"><a href="#">热销商品</a></div>
+            <div class="categorys-tab-content">
+                <div class="categorys-items" ectype="items">
+                    {volist name="HotCate" id="HotCateRes"  offset="0" length='5'}
+                    <div class="categorys-item" ectype="item" data-catid="347" data-eveval="0">
+                        <div class="item-content">
+                            <i class="iconfont icon-right"></i>
+                            <div class="categorys-title">
+                                <strong><a href="{:url('index/Categorys/index',array('id'=>$HotCateRes['self']['id']))}">{$HotCateRes['self']['cate_name']}</a></strong>
+		                          <span>
+                                     {volist name="$HotCateRes['childs']" id="HotChilds"  offset="0" length='6'}
+                                    <a href="{:url('index/Categorys/index',array('id'=>$HotChilds['id']))}">{$HotChilds.cate_name}</a>
+                                    {/volist}
+		                        </span>
+                            </div>
+                        </div>
+                        <div class="categorys-items-layer" ectype="cateLayer" style="display: none;">
+                            <div class="catetop-layer-con clearfix">
+                                <h3><a href="#">{$HotCateRes['self']['cate_name']}</a></h3>
+                                <ul class="cate-list">
+                                    {volist name="$HotCateRes['childs']" id="HotChilds" }
+                                    <li><a href="{:url('index/Categorys/index',array('id'=>$HotChilds['id']))}">{$HotChilds.cate_name}</a></li>
+                                    {/volist}
+                                </ul>
+                                <ul class="cate-logo">
+                                    {volist name="$HotCateRes['childs']" id="HotChilds" offset="0" length='14'}
+                                    <li><a href="#"><img src="__INDEX__/img/1490072756032175204.jpg" width="112" height="49"></a></li>
+                                    {/volist}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {/volist}
+                   
+                </div>
+            </div>
+        </div>
+        <div class="nav-main">
+            <ul class="navitems">
+                <li><a href="#" class="curr">首页</a></li>
+                {volist name="TopNav" id="TopNavRes"}
+                <li><a href="{$TopNavRes.nav_url}"  >{$TopNavRes.nav_name}</a></li>
+                {/volist}
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,203 @@
+<div class="page-sidebar" id="sidebar">
+    <!-- Page Sidebar Header-->
+    <div class="sidebar-header-wrapper">
+        <input class="searchinput" type="text">
+        <i class="searchicon fa fa-search"></i>
+        <div class="searchhelper">Search Reports, Charts, Emails or Notifications</div>
+    </div>
+    <!-- /Page Sidebar Header -->
+    <!-- Sidebar Menu -->
+    <ul class="nav sidebar-menu">
+        <!--Dashboard-->
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa  fa-calendar"></i>
+                <span class="menu-text">商品管理</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="{:url('Goods/GoodsList')}">
+                        <span class="menu-text">商品列表</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Goods/GoodsAdd')}">
+                        <span class="menu-text">添加商品</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('brand/BrandList')}">
+                        <span class="menu-text">商品品牌</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Category/CateList')}">
+                        <span class="menu-text">商品分类</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Goodstype/TypeList')}">
+                        <span class="menu-text">商品类型</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class="menu-text">商品回收站</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa   fa-bullhorn"></i>
+                <span class="menu-text">促销管理</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="">
+                        <span class="menu-text">促销管理</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa   fa-building-o"></i>
+                <span class="menu-text">订单管理</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="">
+                        <span class="menu-text">订单管理管理</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa   fa-vimeo-square"></i>
+                <span class="menu-text">会员管理</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="{:url('Member/MemberList')}">
+                        <span class="menu-text">会员管理</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa   fa-comment-o"></i>
+                <span class="menu-text">短信管理</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="">
+                        <span class="menu-text">短信管理</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa  fa-folder-o"></i>
+                <span class="menu-text">文章模块</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="{:url('Cate/CateList')}">
+                        <span class="menu-text">栏目管理</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Article/ArticleList')}">
+                        <span class="menu-text">文章管理</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa   fa-bitbucket"></i>
+                <span class="menu-text">数据库管理</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="">
+                        <span class="menu-text">数据库管理</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa  fa-windows"></i>
+                <span class="menu-text">系统管理</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu">
+                <li class="open">
+                    <a class="menu-dropdown" href="/"><span class="menu-text">安全管理</span><i class="menu-expand"></i></a>
+                    <ul class="submenu" style="display: block;">
+                        <li>
+                            <a href="{:url('Admin/AdminList')}"><i class="menu-icon fa  fa-user"></i><span class="menu-text">管理员列表</span></a>
+                        </li>
+                        <li>
+                            <a href="/Home/GlyphIcons"><i class="menu-icon fa fa-group "></i><span class="menu-text">用户组列表</span></a>
+                        </li>
+                        <li>
+                            <a href="/Home/Typicons"><i class="menu-icon fa fa-unlock"></i><span class="menu-text">权限列表</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="open">
+                    <a class="menu-dropdown" href="/"><span class="menu-text">系统属性管理</span><i class="menu-expand"></i></a>
+                    <ul class="submenu" style="display: block;">
+                        <li>
+                            <a href="/Home/FontAwesome"><i class="menu-icon fa fa-rocket"></i><span class="menu-text">网站设置</span></a>
+                        </li>
+                        <li>
+                            <a href="/Home/GlyphIcons"><i class="menu-icon glyphicon glyphicon-stats"></i><span class="menu-text">系统服务设置</span></a>
+                        </li>
+                        <li>
+                            <a href="/Home/Typicons"><i class="menu-icon typcn typcn-location-outline"></i><span class="menu-text">Typicons</span></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+
+
+
+    </ul>
+    <!-- /Sidebar Menu -->
+</div>
